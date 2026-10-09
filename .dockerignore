@@ -1,0 +1,43 @@
+# Build context = erpnext_parcel_station/
+# We exclude things that don't belong inside the Frappe app at /apps/erpnext_parcel_station
+
+# Exclude docker/ contents from being copied INTO the Frappe app folder,
+# but keep entrypoint.sh in the build context — the Dockerfile copies it explicitly.
+docker/*
+!docker/entrypoint.sh
+
+.git/
+.gitignore
+.dockerignore
+
+# Python
+*.pyc
+*.pyo
+__pycache__/
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Node — match at any depth
+node_modules
+node_modules/
+**/node_modules
+**/node_modules/
+yarn-error.log
+npm-debug.log
+.yarn/
+.pnp.*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Local env files (never bake secrets into the image)
+.env
+.env.*

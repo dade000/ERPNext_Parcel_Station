@@ -1,0 +1,297 @@
+{
+ "actions": [],
+ "creation": "2025-09-10 13:23:16.421534",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "issingle": 1,
+ "field_order": [
+  "general_section",
+  "default_carrier",
+  "debug_logs",
+  "sender_section",
+  "sender_name",
+  "sender_email",
+  "sender_phone",
+  "sender_address_line1",
+  "sender_address_line2",
+  "sender_city",
+  "sender_postal_code",
+  "sender_country",
+  "tracking_monitoring_section",
+  "tracking_cutoff_days",
+  "stuck_threshold_days",
+  "tracking_monitoring_column_break",
+  "digest_enabled",
+  "digest_recipients",
+  "pickup_reminder_section",
+  "pickup_reminder_enabled",
+  "pickup_reminder_days",
+  "pickup_reminder_sender",
+  "pickup_reminder_column_break",
+  "pickup_reminder_email_template",
+  "pickup_reminder_email_template_en",
+  "shipping_notification_section",
+  "shipping_notification_enabled",
+  "shipping_notification_start",
+  "shipping_notification_sender",
+  "shipping_notification_tracking_page_url",
+  "shipping_notification_column_break",
+  "shipping_notification_email_template",
+  "shipping_notification_email_template_en",
+  "shipping_notification_attach_delivery_note",
+  "shipping_notification_print_format",
+  "packing_section",
+  "packable_item_groups"
+ ],
+ "fields": [
+  {
+   "fieldname": "general_section",
+   "fieldtype": "Section Break",
+   "label": "General"
+  },
+  {
+   "fieldname": "default_carrier",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Default Carrier Code",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "debug_logs",
+   "fieldtype": "Check",
+   "label": "Enable Debug Logs"
+  },
+  {
+   "fieldname": "sender_section",
+   "fieldtype": "Section Break",
+   "label": "Sender",
+   "description": "Default sender details used on shipping labels. Leave blank to inherit per-Company / Address defaults."
+  },
+  {
+   "fieldname": "sender_name",
+   "fieldtype": "Data",
+   "label": "Sender Name"
+  },
+  {
+   "fieldname": "sender_email",
+   "fieldtype": "Data",
+   "label": "Sender Email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "sender_phone",
+   "fieldtype": "Data",
+   "label": "Sender Phone"
+  },
+  {
+   "fieldname": "sender_address_line1",
+   "fieldtype": "Data",
+   "label": "Sender Address Line 1"
+  },
+  {
+   "fieldname": "sender_address_line2",
+   "fieldtype": "Data",
+   "label": "Sender Address Line 2"
+  },
+  {
+   "fieldname": "sender_city",
+   "fieldtype": "Data",
+   "label": "Sender City"
+  },
+  {
+   "fieldname": "sender_postal_code",
+   "fieldtype": "Data",
+   "label": "Sender Postal Code"
+  },
+  {
+   "fieldname": "sender_country",
+   "fieldtype": "Link",
+   "label": "Sender Country",
+   "options": "Country"
+  },
+  {
+   "fieldname": "tracking_monitoring_section",
+   "fieldtype": "Section Break",
+   "label": "Tracking Monitoring",
+   "description": "Carrier-independent tracking behaviour: polling cutoff and the daily problem digest."
+  },
+  {
+   "default": "30",
+   "fieldname": "tracking_cutoff_days",
+   "fieldtype": "Int",
+   "label": "Tracking Cutoff (Days)",
+   "description": "Shipments older than this are no longer polled at FedEx/GLS and drop out of the stuck-shipment check.",
+   "non_negative": 1
+  },
+  {
+   "default": "7",
+   "fieldname": "stuck_threshold_days",
+   "fieldtype": "Int",
+   "label": "Stuck Threshold (Days)",
+   "description": "A non-delivered shipment whose latest tracking event is older than this appears in the daily digest.",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "tracking_monitoring_column_break",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "digest_enabled",
+   "fieldtype": "Check",
+   "label": "Send Daily Tracking Digest"
+  },
+  {
+   "fieldname": "digest_recipients",
+   "fieldtype": "Small Text",
+   "label": "Digest Recipients",
+   "description": "Email addresses, separated by comma, semicolon or newline."
+  },
+  {
+   "fieldname": "pickup_reminder_section",
+   "fieldtype": "Section Break",
+   "label": "Pickup Reminder",
+   "description": "Customer e-mail for a parcel deposited at a post office / ParcelShop / Hold-at-Location that has not been collected. One mail per Shipment, sent by the daily 09:00 run."
+  },
+  {
+   "fieldname": "pickup_reminder_enabled",
+   "fieldtype": "Check",
+   "label": "Send Pickup Reminders",
+   "default": "0"
+  },
+  {
+   "fieldname": "pickup_reminder_days",
+   "fieldtype": "Int",
+   "label": "Remind After (Days)",
+   "default": "2",
+   "description": "Mail the customer once the parcel has been ready for pickup for MORE than this many calendar days."
+  },
+  {
+   "fieldname": "pickup_reminder_sender",
+   "fieldtype": "Data",
+   "label": "Sender",
+   "options": "Email",
+   "description": "Optional. Leave empty for the default outgoing Email Account."
+  },
+  {
+   "fieldname": "pickup_reminder_column_break",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "pickup_reminder_email_template",
+   "fieldtype": "Link",
+   "label": "Email Template (DE)",
+   "options": "Email Template",
+   "description": "Context: doc (Shipment), customer_name, orders, pickup (carrier, tracking_number, location, ready_since_formatted, days_waiting). Without a template a built-in text is used."
+  },
+  {
+   "fieldname": "pickup_reminder_email_template_en",
+   "fieldtype": "Link",
+   "label": "Email Template (EN)",
+   "options": "Email Template"
+  },
+  {
+   "fieldname": "shipping_notification_section",
+   "fieldtype": "Section Break",
+   "label": "Shipping Notification",
+   "description": "Customer e-mail once a Shipment has a tracking number. One mail per recipient and run (12:30 and 17:30), listing all parcels labelled since the last run."
+  },
+  {
+   "fieldname": "shipping_notification_enabled",
+   "fieldtype": "Check",
+   "label": "Send Shipping Notifications",
+   "default": "0"
+  },
+  {
+   "fieldname": "shipping_notification_start",
+   "fieldtype": "Datetime",
+   "label": "Notify Shipments Created From",
+   "description": "Set automatically when the notifications are switched on. Shipments created before this moment are never mailed."
+  },
+  {
+   "fieldname": "shipping_notification_sender",
+   "fieldtype": "Data",
+   "label": "Sender",
+   "options": "Email",
+   "description": "Optional. Leave empty for the default outgoing Email Account."
+  },
+  {
+   "fieldname": "shipping_notification_tracking_page_url",
+   "fieldtype": "Data",
+   "label": "Tracking Page URL",
+   "description": "Link to the shop's tracking page, e.g. https://www.example.com/{language}/tracking/{token}. {token} is replaced by the order's secret token, {language} by de or en. Leave empty to send the mail without a link."
+  },
+  {
+   "fieldname": "shipping_notification_column_break",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "shipping_notification_email_template",
+   "fieldtype": "Link",
+   "label": "Email Template (DE)",
+   "options": "Email Template",
+   "description": "Context: customer_name, company, orders, parcel_count, tracking_links (order, url), shipments (carrier, tracking_number, orders, items, address_lines, is_parcel_shop, tracking_url). Without a template a built-in text is used."
+  },
+  {
+   "fieldname": "shipping_notification_email_template_en",
+   "fieldtype": "Link",
+   "label": "Email Template (EN)",
+   "options": "Email Template"
+  },
+  {
+   "fieldname": "shipping_notification_attach_delivery_note",
+   "fieldtype": "Check",
+   "label": "Attach Delivery Note PDF",
+   "default": "1"
+  },
+  {
+   "fieldname": "shipping_notification_print_format",
+   "fieldtype": "Link",
+   "label": "Delivery Note Print Format",
+   "options": "Print Format",
+   "depends_on": "eval:doc.shipping_notification_attach_delivery_note",
+   "description": "Optional. Leave empty for the default Print Format of Delivery Note."
+  },
+  {
+   "fieldname": "packing_section",
+   "fieldtype": "Section Break",
+   "label": "Packing",
+   "description": "What the station offers to pack. Non-stock lines are charges (freight fee, import duty) and stay hidden -- except Items in these groups: a repair is a service on the order, but the repaired shoe is what goes in the box."
+  },
+  {
+   "fieldname": "packable_item_groups",
+   "fieldtype": "Table MultiSelect",
+   "label": "Packable Non-Stock Item Groups",
+   "options": "Parcel Station Packable Item Group",
+   "description": "Item Groups (with their sub-groups) whose non-stock Items count as goods: packing list, orders to pack, shipping notification."
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-10-05 16:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Erpnext Parcel Station",
+ "name": "Parcel Station Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

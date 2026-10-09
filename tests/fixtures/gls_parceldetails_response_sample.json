@@ -1,0 +1,70 @@
+{
+  "_meta": {
+    "purpose": "GLS ShipIT parcel-details response (POST tracking/parceldetails) used by parcel/tracking/test_gls_track.py.",
+    "source": "History entries as captured from production on 2026-10-02 (a delivered parcel, exported from Parcel Tracking Event raw payloads). The UnitDetail wrapper is confirmed against the test system; the TrackID is synthetic. No parcel-level Status field was seen in a real answer.",
+    "sensitive_data": "None: history entries carry depot locations only; synthetic TrackID."
+  },
+  "UnitDetail": {
+    "TrackID": "ZR1LAB5T",
+    "Product": "PARCEL",
+    "Weight": "1.0",
+    "History": [
+      {
+        "Country": "AT",
+        "Date": "2026-10-02T09:39:07+02:00",
+        "Description": "The parcel has been delivered.",
+        "Location": "Ansfelden AT 380",
+        "LocationCode": "AT 380",
+        "StatusCode": "DELIVERED"
+      },
+      {
+        "Country": "AT",
+        "Date": "2026-10-02T05:21:23+02:00",
+        "Description": "The parcel is expected to be delivered during the day.",
+        "Location": "Ansfelden AT 380",
+        "LocationCode": "AT 380",
+        "StatusCode": "IN_DELIVERY"
+      },
+      {
+        "Country": "AT",
+        "Date": "2026-10-02T05:16:22+02:00",
+        "Description": "The parcel has reached the parcel center.",
+        "Location": "Ansfelden AT 380",
+        "LocationCode": "AT 380",
+        "StatusCode": "HUB"
+      },
+      {
+        "Country": "DE",
+        "Date": "2026-10-01T20:25:02+02:00",
+        "Description": "The parcel has reached the parcel center.",
+        "Location": "RUP München DE R80 DE 080",
+        "LocationCode": "DE 080",
+        "StatusCode": "HUB"
+      },
+      {
+        "Country": "AT",
+        "Date": "2026-09-30T18:30:37+02:00",
+        "Description": "The parcel was handed over to GLS.",
+        "Location": "Rankweil AT 520",
+        "LocationCode": "AT 520",
+        "StatusCode": "HUB"
+      },
+      {
+        "Country": "AT",
+        "Date": "2026-09-30T15:39:22+02:00",
+        "Description": "The parcel has been picked up by GLS.",
+        "Location": "Rankweil AT 520",
+        "LocationCode": "AT 520",
+        "StatusCode": "HUB"
+      },
+      {
+        "Country": "AT",
+        "Date": "2026-09-30T09:01:49+02:00",
+        "Description": "The parcel data was entered into the GLS IT system; the parcel was not yet handed over to GLS.",
+        "Location": "Rankweil AT 520",
+        "LocationCode": "AT 520",
+        "StatusCode": "DATA_RECEIVED"
+      }
+    ]
+  }
+}

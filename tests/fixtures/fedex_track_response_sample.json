@@ -1,0 +1,61 @@
+{
+  "_meta": {
+    "purpose": "Trimmed FedEx Track API v1 response (POST /track/v1/trackingnumbers) used by parcel/tracking/test_fedex_track.py. Shape follows the FedEx Track API documentation (output.completeTrackResults[].trackResults[].scanEvents[]); values are synthetic.",
+    "source": "Constructed from FedEx Track API docs 2026-09-07 — replace with a captured sandbox response once one is available.",
+    "sensitive_data": "None (synthetic tracking numbers and addresses)."
+  },
+  "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
+  "output": {
+    "completeTrackResults": [
+      {
+        "trackingNumber": "794843185271",
+        "trackResults": [
+          {
+            "trackingNumberInfo": {"trackingNumber": "794843185271"},
+            "latestStatusDetail": {
+              "code": "DL",
+              "derivedCode": "DL",
+              "statusByLocale": "Delivered",
+              "description": "Delivered"
+            },
+            "scanEvents": [
+              {
+                "date": "2026-09-05T10:22:00+02:00",
+                "eventType": "DL",
+                "eventDescription": "Delivered",
+                "derivedStatusCode": "DL",
+                "scanLocation": {"city": "WOLFURT", "postalCode": "6960", "countryCode": "AT"}
+              },
+              {
+                "date": "2026-09-05T07:14:00+02:00",
+                "eventType": "OD",
+                "eventDescription": "On FedEx vehicle for delivery",
+                "derivedStatusCode": "OD",
+                "scanLocation": {"city": "WOLFURT", "postalCode": "6960", "countryCode": "AT"}
+              },
+              {
+                "date": "2026-09-04T19:30:00+02:00",
+                "eventType": "AR",
+                "eventDescription": "At local FedEx facility",
+                "derivedStatusCode": "IT",
+                "scanLocation": {"city": "FELDKIRCH", "postalCode": "6800", "countryCode": "AT"}
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "trackingNumber": "794843999999",
+        "trackResults": [
+          {
+            "trackingNumberInfo": {"trackingNumber": "794843999999"},
+            "error": {
+              "code": "TRACKING.TRACKINGNUMBER.NOTFOUND",
+              "message": "Tracking number cannot be found."
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

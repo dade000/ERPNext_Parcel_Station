@@ -1,0 +1,134 @@
+{
+ "actions": [],
+ "autoname": "field:file_name",
+ "creation": "2026-09-07 12:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "file_section",
+  "file_name",
+  "remote_path",
+  "status",
+  "fetched_at",
+  "file_column_break",
+  "content_hash",
+  "error_message",
+  "result_section",
+  "event_count",
+  "matched_count",
+  "result_column_break",
+  "orphan_count",
+  "duplicate_event_count"
+ ],
+ "fields": [
+  {
+   "fieldname": "file_section",
+   "fieldtype": "Section Break",
+   "label": "Datei"
+  },
+  {
+   "fieldname": "file_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Dateiname",
+   "read_only": 1,
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "remote_path",
+   "fieldtype": "Data",
+   "label": "SFTP-Pfad",
+   "read_only": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Imported\nFailed\nDuplicate",
+   "read_only": 1
+  },
+  {
+   "fieldname": "fetched_at",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Abgeholt am",
+   "read_only": 1
+  },
+  {
+   "fieldname": "file_column_break",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "content_hash",
+   "fieldtype": "Data",
+   "label": "Inhalts-Hash (SHA-256)",
+   "length": 64,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "error_message",
+   "fieldtype": "Small Text",
+   "label": "Fehler",
+   "read_only": 1
+  },
+  {
+   "fieldname": "result_section",
+   "fieldtype": "Section Break",
+   "label": "Ergebnis"
+  },
+  {
+   "fieldname": "event_count",
+   "fieldtype": "Int",
+   "label": "Events in Datei",
+   "read_only": 1
+  },
+  {
+   "fieldname": "matched_count",
+   "fieldtype": "Int",
+   "label": "Zugeordnet",
+   "read_only": 1
+  },
+  {
+   "fieldname": "result_column_break",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "orphan_count",
+   "fieldtype": "Int",
+   "label": "Ohne Shipment (Orphans)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "duplicate_event_count",
+   "fieldtype": "Int",
+   "label": "Duplikate übersprungen",
+   "read_only": 1
+  }
+ ],
+ "in_create": 1,
+ "links": [],
+ "modified": "2026-09-07 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Erpnext Parcel Station",
+ "name": "Post Tracking File",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager"
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 0
+}

@@ -1,0 +1,73 @@
+{
+ "actions": [],
+ "creation": "2026-05-21 14:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "issingle": 1,
+ "field_order": [
+  "endpoint_section",
+  "scale_url",
+  "credentials_section",
+  "scale_username",
+  "scale_password"
+ ],
+ "fields": [
+  {
+   "fieldname": "endpoint_section",
+   "fieldtype": "Section Break",
+   "label": "Endpoint"
+  },
+  {
+   "fieldname": "scale_url",
+   "fieldtype": "Data",
+   "label": "Scale URL",
+   "options": "URL",
+   "reqd": 1,
+   "description": "HTTPS endpoint exposed by the warehouse scale's vhost. Example: https://scale.example.com/weight"
+  },
+  {
+   "fieldname": "credentials_section",
+   "fieldtype": "Section Break",
+   "label": "Credentials"
+  },
+  {
+   "fieldname": "scale_username",
+   "fieldtype": "Data",
+   "label": "Username",
+   "reqd": 1
+  },
+  {
+   "fieldname": "scale_password",
+   "fieldtype": "Password",
+   "label": "Password",
+   "reqd": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-05-21 14:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Erpnext Parcel Station",
+ "name": "Scale Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

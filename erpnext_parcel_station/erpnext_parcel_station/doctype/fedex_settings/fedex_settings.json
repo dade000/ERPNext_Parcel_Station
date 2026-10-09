@@ -1,0 +1,373 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-08-31 09:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "activation_section",
+  "enable_fedex_integration",
+  "enable_fedex_tracking",
+  "column_break_activation",
+  "api_mode",
+  "credentials_section",
+  "sandbox_credentials_heading",
+  "sandbox_client_key",
+  "sandbox_client_secret",
+  "sandbox_account_number",
+  "column_break_credentials",
+  "production_credentials_heading",
+  "production_client_key",
+  "production_client_secret",
+  "production_account_number",
+  "endpoints_section",
+  "sandbox_base_url",
+  "production_base_url",
+  "column_break_endpoints",
+  "api_timeout",
+  "tracking_credentials_section",
+  "sandbox_tracking_heading",
+  "sandbox_tracking_client_key",
+  "sandbox_tracking_client_secret",
+  "column_break_tracking_credentials",
+  "production_tracking_heading",
+  "production_tracking_client_key",
+  "production_tracking_client_secret",
+  "label_section",
+  "label_image_type",
+  "label_stock_type",
+  "label_resolution",
+  "column_break_label",
+  "request_auxiliary_label",
+  "pickup_type",
+  "default_service_type",
+  "customs_section",
+  "shipment_purpose",
+  "column_break_customs",
+  "terms_of_sale",
+  "pickup_section",
+  "enable_auto_pickup",
+  "pickup_ready_time",
+  "pickup_close_time",
+  "pickup_carrier_code",
+  "column_break_pickup",
+  "pickup_package_location",
+  "pickup_remarks",
+  "pickup_notification_email"
+ ],
+ "fields": [
+  {
+   "fieldname": "activation_section",
+   "fieldtype": "Section Break",
+   "label": "Activation"
+  },
+  {
+   "fieldname": "enable_fedex_integration",
+   "fieldtype": "Check",
+   "label": "Enable FedEx Integration",
+   "default": "0",
+   "description": "When off, FedEx shipments are skipped instead of calling the API. Mirrors the Austrian Post enable flag."
+  },
+  {
+   "default": "0",
+   "fieldname": "enable_fedex_tracking",
+   "fieldtype": "Check",
+   "label": "Enable FedEx Tracking Poll",
+   "description": "When unchecked, the scheduled tracking poll skips FedEx. Uses the same OAuth credentials and base URL as label creation."
+  },
+  {
+   "fieldname": "column_break_activation",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "api_mode",
+   "fieldtype": "Select",
+   "label": "API Mode",
+   "options": "Sandbox\nProduction",
+   "default": "Sandbox",
+   "reqd": 1,
+   "description": "Selects which base URL and which set of credentials is used. Sandbox and Production have SEPARATE credentials at FedEx."
+  },
+  {
+   "fieldname": "credentials_section",
+   "fieldtype": "Section Break",
+   "label": "API Credentials",
+   "description": "FedEx issues separate credentials and shipping accounts per environment. Fill in the set matching API Mode; the other set stays untouched so you can switch back to Sandbox for development at any time."
+  },
+  {
+   "fieldname": "sandbox_credentials_heading",
+   "fieldtype": "Heading",
+   "label": "Sandbox"
+  },
+  {
+   "fieldname": "sandbox_client_key",
+   "fieldtype": "Data",
+   "label": "Sandbox API Key"
+  },
+  {
+   "fieldname": "sandbox_client_secret",
+   "fieldtype": "Password",
+   "label": "Sandbox Secret Key"
+  },
+  {
+   "fieldname": "sandbox_account_number",
+   "fieldtype": "Data",
+   "label": "Sandbox Account Number",
+   "description": "FedEx's shared test account is 740561073. It is US-based, so Austrian domestic shipments fail with PAYMENT.PAYORCOUNTRY.INVALID."
+  },
+  {
+   "fieldname": "column_break_credentials",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "production_credentials_heading",
+   "fieldtype": "Heading",
+   "label": "Production"
+  },
+  {
+   "fieldname": "production_client_key",
+   "fieldtype": "Data",
+   "label": "Production API Key"
+  },
+  {
+   "fieldname": "production_client_secret",
+   "fieldtype": "Password",
+   "label": "Production Secret Key"
+  },
+  {
+   "fieldname": "production_account_number",
+   "fieldtype": "Data",
+   "label": "Production Account Number",
+   "description": "Must be associated with the API key at FedEx. Some European countries need a SEPARATE account for domestic shipments — the payor account's country has to match the shipment origin or destination."
+  },
+  {
+   "fieldname": "endpoints_section",
+   "fieldtype": "Section Break",
+   "label": "Endpoints"
+  },
+  {
+   "fieldname": "sandbox_base_url",
+   "fieldtype": "Data",
+   "label": "Sandbox Base URL",
+   "default": "https://apis-sandbox.fedex.com"
+  },
+  {
+   "fieldname": "production_base_url",
+   "fieldtype": "Data",
+   "label": "Production Base URL",
+   "default": "https://apis.fedex.com"
+  },
+  {
+   "fieldname": "column_break_endpoints",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "api_timeout",
+   "fieldtype": "Int",
+   "label": "HTTP Timeout (seconds)",
+   "default": "30"
+  },
+  {
+   "fieldname": "tracking_credentials_section",
+   "fieldtype": "Section Break",
+   "label": "Track API Credentials",
+   "description": "The FedEx Developer Portal requires the Track API to live in its OWN project — it cannot be added to the Ship project. Create a \"Track API\" project on the same shipping account and enter its key pair here. The base URLs and account number above are shared.",
+   "depends_on": "enable_fedex_tracking"
+  },
+  {
+   "fieldname": "sandbox_tracking_heading",
+   "fieldtype": "Heading",
+   "label": "Sandbox"
+  },
+  {
+   "fieldname": "sandbox_tracking_client_key",
+   "fieldtype": "Data",
+   "label": "Sandbox Tracking API Key"
+  },
+  {
+   "fieldname": "sandbox_tracking_client_secret",
+   "fieldtype": "Password",
+   "label": "Sandbox Tracking Secret Key"
+  },
+  {
+   "fieldname": "column_break_tracking_credentials",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "production_tracking_heading",
+   "fieldtype": "Heading",
+   "label": "Production"
+  },
+  {
+   "fieldname": "production_tracking_client_key",
+   "fieldtype": "Data",
+   "label": "Production Tracking API Key"
+  },
+  {
+   "fieldname": "production_tracking_client_secret",
+   "fieldtype": "Password",
+   "label": "Production Tracking Secret Key"
+  },
+  {
+   "fieldname": "label_section",
+   "fieldtype": "Section Break",
+   "label": "Label"
+  },
+  {
+   "fieldname": "label_image_type",
+   "fieldtype": "Select",
+   "label": "Label Image Type",
+   "options": "ZPLII\nPDF",
+   "default": "ZPLII",
+   "description": "ZPLII feeds the existing raw-ZPL CUPS print path. PDF is for archiving only and cannot be sent to the label printer."
+  },
+  {
+   "fieldname": "label_stock_type",
+   "fieldtype": "Data",
+   "label": "Label Stock Type",
+   "default": "STOCK_4X6",
+   "description": "FedEx labelStockType, e.g. STOCK_4X6 for 4x6 inch roll stock."
+  },
+  {
+   "fieldname": "label_resolution",
+   "fieldtype": "Select",
+   "label": "Label Resolution (DPI)",
+   "options": "203\n300",
+   "default": "203",
+   "description": "Must match the label printer's own resolution. ZPL coordinates are in dots, so a 300 dpi label sent to a 203 dpi printer prints ~1.5x oversized and clipped. 300 is only valid with ZPLII."
+  },
+  {
+   "fieldname": "column_break_label",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "request_auxiliary_label",
+   "fieldtype": "Check",
+   "label": "Auxiliary AWB Label (international)",
+   "default": "1",
+   "description": "Adds the secondary Air Waybill label to international shipments as a second ^XA block in the same ZPL stream, so the printer emits two labels per parcel. FedEx requires it for International Express — and its label-evaluation team rejects approval samples without it. Turning this off halves label consumption but ships non-conforming parcels."
+  },
+  {
+   "fieldname": "pickup_type",
+   "fieldtype": "Select",
+   "label": "Pickup Type",
+   "options": "USE_SCHEDULED_PICKUP\nDROPOFF_AT_FEDEX_LOCATION\nCONTACT_FEDEX_TO_SCHEDULE",
+   "default": "USE_SCHEDULED_PICKUP"
+  },
+  {
+   "fieldname": "default_service_type",
+   "fieldtype": "Data",
+   "label": "Default Service Type",
+   "default": "FEDEX_INTERNATIONAL_PRIORITY",
+   "description": "Used only when the Carrier Service has no Service Code. Per-service values belong on the Carrier Service master."
+  },
+  {
+   "fieldname": "customs_section",
+   "fieldtype": "Section Break",
+   "label": "Customs",
+   "description": "customsClearanceDetail is sent on every shipment; FedEx itself decides whether the destination needs clearance. Electronic Trade Documents are requested only for non-EU destinations."
+  },
+  {
+   "fieldname": "shipment_purpose",
+   "fieldtype": "Select",
+   "label": "Shipment Purpose",
+   "options": "SOLD\nGIFT\nNOT_SOLD\nPERSONAL_EFFECTS\nREPAIR_AND_RETURN\nSAMPLE",
+   "default": "SOLD"
+  },
+  {
+   "fieldname": "column_break_customs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "terms_of_sale",
+   "fieldtype": "Data",
+   "label": "Terms of Sale",
+   "default": "DAP",
+   "description": "Incoterm printed on the commercial invoice. Max 3 characters."
+  },
+  {
+   "fieldname": "pickup_section",
+   "fieldtype": "Section Break",
+   "label": "Courier Pickup",
+   "description": "Pickup Request API. The 12:00 run (Mon-Fri) books one FedEx Express pickup for every submitted FedEx shipment with a label that no pickup covers yet. The Parcel Station also offers a manual Request/Cancel."
+  },
+  {
+   "fieldname": "enable_auto_pickup",
+   "fieldtype": "Check",
+   "label": "Request Pickup Automatically at 12:00",
+   "default": "0"
+  },
+  {
+   "fieldname": "pickup_ready_time",
+   "fieldtype": "Time",
+   "label": "Packages Ready At",
+   "default": "12:30:00",
+   "description": "readyDateTimestamp. Must lie before the FedEx cutoff for the pickup postal code."
+  },
+  {
+   "fieldname": "pickup_close_time",
+   "fieldtype": "Time",
+   "label": "Business Closes At",
+   "default": "16:00:00",
+   "description": "customerCloseTime. A manual request after this time books the next business day."
+  },
+  {
+   "fieldname": "pickup_carrier_code",
+   "fieldtype": "Select",
+   "label": "Pickup Carrier",
+   "options": "FDXE\nFDXG",
+   "default": "FDXE",
+   "description": "FDXE = FedEx Express (International Priority/Economy, Regional Economy)."
+  },
+  {
+   "fieldname": "column_break_pickup",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "pickup_package_location",
+   "fieldtype": "Select",
+   "label": "Package Location",
+   "options": "FRONT\nNONE\nREAR\nSIDE",
+   "default": "FRONT"
+  },
+  {
+   "fieldname": "pickup_remarks",
+   "fieldtype": "Data",
+   "label": "Remarks for the Courier",
+   "default": "Haupteingang Verkaufsraum",
+   "length": 60,
+   "description": "Sent as remarks (max 60 characters, ASCII only)."
+  },
+  {
+   "fieldname": "pickup_notification_email",
+   "fieldtype": "Data",
+   "label": "Failure Notification Email",
+   "options": "Email",
+   "description": "Receives a mail whenever a pickup request fails. Every failure is also written to the Error Log."
+  }
+ ],
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-09-24 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Erpnext Parcel Station",
+ "name": "FedEx Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,19 @@
+.DS_Store
+*.pyc
+*.egg-info
+*.swp
+tags
+node_modules
+__pycache__
+
+# Secrets / credentials — never commit
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+secrets/
+credentials/
+
+# Local diagnostics + scratch
+diag_script.py

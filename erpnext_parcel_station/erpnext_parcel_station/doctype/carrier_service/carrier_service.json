@@ -1,0 +1,219 @@
+{
+ "actions": [],
+ "autoname": "hash",
+ "creation": "2024-07-02 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "carrier",
+  "carrier_key",
+  "service_name",
+  "service_code",
+  "shipping_item",
+  "is_parcelshop_pickup",
+  "min_delivery_days",
+  "max_delivery_days",
+  "allowed_countries",
+  "carrier_options_section",
+  "packaging_type",
+  "column_break_carrier_options",
+  "duties_payment",
+  "import_charges_section",
+  "customs_item",
+  "import_duty_percent",
+  "import_tax_percent",
+  "column_break_import_charges",
+  "import_charge_base",
+  "import_de_minimis_value",
+  "disbursement_fee_percent",
+  "disbursement_fee_minimum"
+ ],
+ "fields": [
+  {
+   "fieldname": "carrier",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Carrier",
+   "options": "Carrier",
+   "reqd": 1
+  },
+  {
+   "fieldname": "carrier_key",
+   "fieldtype": "Data",
+   "label": "Carrier Key",
+   "read_only": 1,
+   "hidden": 1,
+   "no_copy": 1,
+   "description": "Resolved carrier identity (GLS / AUSTRIAN_POST / FEDEX). Set on save from the Carrier master and used to show only the settings that carrier actually reads."
+  },
+  {
+   "fieldname": "service_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Service Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "service_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Service Code",
+   "reqd": 1,
+   "description": "Code sent to the carrier API. Not unique: the same code may appear on several services when the carrier reuses it across destinations (e.g. Austrian Post 70 for Germany and Switzerland) and each destination needs its own Shipping Item for pricing. Distinguish those rows via Allowed Countries."
+  },
+  {
+   "fieldname": "shipping_item",
+   "label": "Shipping Item",
+   "fieldtype": "Link",
+   "options": "Item",
+   "description": "Item whose price becomes the shipping line on the Sales Order. One Item per service row \u2014 to charge different rates for the same carrier service code, create one service row per destination."
+  },
+  {
+   "fieldname": "is_parcelshop_pickup",
+   "label": "Parcel Shop Pickup Only",
+   "fieldtype": "Check",
+   "default": "0",
+   "depends_on": "eval:doc.carrier_key=='GLS'"
+  },
+  {
+   "fieldname": "min_delivery_days",
+   "label": "Minimum Delivery Days",
+   "fieldtype": "Int",
+   "non_negative": 1,
+   "description": "Earliest delivery, in business/calendar days after the order. Drives the dynamic delivery estimate shown at checkout and stored on the order."
+  },
+  {
+   "fieldname": "max_delivery_days",
+   "label": "Maximum Delivery Days",
+   "fieldtype": "Int",
+   "non_negative": 1,
+   "description": "Latest delivery, in days after the order. Used as the committed delivery_date on the Sales Order (and downstream Delivery Note / Shipment)."
+  },
+  {
+   "fieldname": "allowed_countries",
+   "label": "Allowed Countries",
+   "fieldtype": "Table",
+   "options": "Carrier Service Country",
+   "description": "Countries this carrier service ships to. Filters the Shipping Rule list at webshop checkout. Empty means all countries."
+  },
+  {
+   "fieldname": "carrier_options_section",
+   "fieldtype": "Section Break",
+   "label": "Carrier Options",
+   "depends_on": "eval:doc.carrier_key=='FEDEX'"
+  },
+  {
+   "fieldname": "packaging_type",
+   "fieldtype": "Data",
+   "label": "Packaging Type",
+   "description": "FedEx packagingType, e.g. YOUR_PACKAGING or FEDEX_BOX. Ignored by carriers that do not use it. Defaults to YOUR_PACKAGING when empty.",
+   "depends_on": "eval:doc.carrier_key=='FEDEX'"
+  },
+  {
+   "fieldname": "column_break_carrier_options",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "duties_payment",
+   "fieldtype": "Select",
+   "label": "Duties & Taxes Paid By",
+   "options": "Recipient (DAP)\nSender (DDP)",
+   "default": "Recipient (DAP)",
+   "description": "Who pays import duties and taxes on customs shipments. DAP leaves them with the recipient, DDP bills them to us.",
+   "depends_on": "eval:doc.carrier_key=='FEDEX'"
+  },
+  {
+   "fieldname": "import_charges_section",
+   "fieldtype": "Section Break",
+   "label": "Pre-collected Import Charges",
+   "description": "For destinations outside the EU customs union. When these are set, the webshop collects the estimated duty and tax with the order and the carrier bills the actual amount back to us \u2014 so 'Duties & Taxes Paid By' must be 'Sender (DDP)', otherwise the recipient is billed a second time at the border.",
+   "depends_on": "eval:doc.carrier_key=='FEDEX'"
+  },
+  {
+   "fieldname": "customs_item",
+   "fieldtype": "Link",
+   "options": "Item",
+   "label": "Import Charge Item",
+   "description": "Item used for the pre-collected import charges line on the Sales Order. Like the Shipping Item it is a charge, not cargo, and is excluded from the customs declaration.",
+   "depends_on": "eval:doc.carrier_key=='FEDEX'"
+  },
+  {
+   "fieldname": "import_duty_percent",
+   "fieldtype": "Percent",
+   "label": "Import Duty %",
+   "default": "0",
+   "depends_on": "eval:doc.carrier_key=='FEDEX' && doc.customs_item"
+  },
+  {
+   "fieldname": "import_tax_percent",
+   "fieldtype": "Percent",
+   "label": "Import Tax / VAT %",
+   "default": "0",
+   "depends_on": "eval:doc.carrier_key=='FEDEX' && doc.customs_item",
+   "description": "Switzerland: 8.1 % standard rate since 2024, with duty on industrial goods (HS 25\u201397) abolished the same year."
+  },
+  {
+   "fieldname": "column_break_import_charges",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "import_charge_base",
+   "fieldtype": "Select",
+   "label": "Charge Base",
+   "options": "Goods plus shipping\nGoods only",
+   "default": "Goods plus shipping",
+   "depends_on": "eval:doc.carrier_key=='FEDEX' && doc.customs_item",
+   "description": "Most customs authorities assess the delivered value, i.e. goods plus freight."
+  },
+  {
+   "fieldname": "import_de_minimis_value",
+   "fieldtype": "Float",
+   "label": "De-minimis Goods Value",
+   "default": "0",
+   "depends_on": "eval:doc.carrier_key=='FEDEX' && doc.customs_item",
+   "description": "Below this goods value nothing is pre-collected. 0 disables the check."
+  },
+  {
+   "fieldname": "disbursement_fee_percent",
+   "fieldtype": "Percent",
+   "label": "Disbursement Fee %",
+   "default": "0",
+   "depends_on": "eval:doc.carrier_key=='FEDEX' && doc.customs_item",
+   "description": "The carrier's fee for advancing duty and tax at the border."
+  },
+  {
+   "fieldname": "disbursement_fee_minimum",
+   "fieldtype": "Float",
+   "label": "Minimum Disbursement Fee",
+   "default": "0",
+   "depends_on": "eval:doc.carrier_key=='FEDEX' && doc.customs_item"
+  }
+ ],
+ "links": [],
+ "modified": "2026-09-01 17:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Erpnext Parcel Station",
+ "name": "Carrier Service",
+ "naming_rule": "Random",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "service_name"
+}

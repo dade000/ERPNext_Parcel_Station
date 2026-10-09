@@ -1,0 +1,242 @@
+{
+ "actions": [],
+ "autoname": "FXP-.#####",
+ "creation": "2026-09-24 12:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "pickup_section",
+  "status",
+  "pickup_date",
+  "ready_time",
+  "close_time",
+  "pickup_date_type",
+  "pickup_column_break",
+  "confirmation_code",
+  "location_code",
+  "carrier_code",
+  "mode",
+  "trigger",
+  "content_section",
+  "pickup_address",
+  "package_count",
+  "total_weight_kg",
+  "country_relationship",
+  "content_column_break",
+  "remarks",
+  "shipment_names",
+  "result_section",
+  "error_message",
+  "cancelled_at",
+  "cancel_message",
+  "raw_section",
+  "request_payload",
+  "response_payload"
+ ],
+ "fields": [
+  {
+   "fieldname": "pickup_section",
+   "fieldtype": "Section Break",
+   "label": "Pickup"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Requested\nCancelled\nFailed",
+   "read_only": 1
+  },
+  {
+   "fieldname": "pickup_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Pickup Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "ready_time",
+   "fieldtype": "Time",
+   "label": "Ready Time",
+   "read_only": 1
+  },
+  {
+   "fieldname": "close_time",
+   "fieldtype": "Time",
+   "label": "Close Time",
+   "read_only": 1
+  },
+  {
+   "fieldname": "pickup_date_type",
+   "fieldtype": "Data",
+   "label": "Pickup Date Type",
+   "read_only": 1
+  },
+  {
+   "fieldname": "pickup_column_break",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "confirmation_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Confirmation Code",
+   "read_only": 1
+  },
+  {
+   "fieldname": "location_code",
+   "fieldtype": "Data",
+   "label": "FedEx Location Code",
+   "read_only": 1
+  },
+  {
+   "fieldname": "carrier_code",
+   "fieldtype": "Data",
+   "label": "Carrier Code",
+   "read_only": 1
+  },
+  {
+   "fieldname": "mode",
+   "fieldtype": "Data",
+   "label": "API Mode",
+   "read_only": 1
+  },
+  {
+   "fieldname": "trigger",
+   "fieldtype": "Data",
+   "label": "Trigger",
+   "read_only": 1
+  },
+  {
+   "fieldname": "content_section",
+   "fieldtype": "Section Break",
+   "label": "Parcels"
+  },
+  {
+   "fieldname": "pickup_address",
+   "fieldtype": "Link",
+   "label": "Pickup Address",
+   "options": "Address",
+   "read_only": 1
+  },
+  {
+   "fieldname": "package_count",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Package Count",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_weight_kg",
+   "fieldtype": "Float",
+   "label": "Total Weight (kg)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "country_relationship",
+   "fieldtype": "Data",
+   "label": "Country Relationship",
+   "read_only": 1
+  },
+  {
+   "fieldname": "content_column_break",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks for the Courier",
+   "read_only": 1
+  },
+  {
+   "description": "Shipments covered by this pickup at request time. The live link is Shipment.fedex_pickup (see Connections).",
+   "fieldname": "shipment_names",
+   "fieldtype": "Small Text",
+   "label": "Shipments",
+   "read_only": 1
+  },
+  {
+   "fieldname": "result_section",
+   "fieldtype": "Section Break",
+   "label": "Result"
+  },
+  {
+   "fieldname": "error_message",
+   "fieldtype": "Small Text",
+   "label": "Error Message",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cancelled_at",
+   "fieldtype": "Datetime",
+   "label": "Cancelled At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cancel_message",
+   "fieldtype": "Small Text",
+   "label": "Cancel Message",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "raw_section",
+   "fieldtype": "Section Break",
+   "label": "Raw Exchange"
+  },
+  {
+   "fieldname": "request_payload",
+   "fieldtype": "Code",
+   "label": "Request Payload",
+   "options": "JSON",
+   "read_only": 1
+  },
+  {
+   "fieldname": "response_payload",
+   "fieldtype": "Code",
+   "label": "Response Payload",
+   "options": "JSON",
+   "read_only": 1
+  }
+ ],
+ "in_create": 1,
+ "links": [
+  {
+   "link_doctype": "Shipment",
+   "link_fieldname": "fedex_pickup"
+  }
+ ],
+ "modified": "2026-09-24 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Erpnext Parcel Station",
+ "name": "FedEx Pickup",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager"
+  },
+  {
+   "export": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Stock User"
+  },
+  {
+   "export": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Stock Manager"
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 0
+}

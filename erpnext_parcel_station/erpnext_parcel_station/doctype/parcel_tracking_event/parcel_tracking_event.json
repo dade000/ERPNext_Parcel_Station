@@ -1,0 +1,221 @@
+{
+ "actions": [],
+ "autoname": "PTE-.########",
+ "creation": "2026-09-07 12:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "event_section",
+  "carrier",
+  "shipment",
+  "tracking_number",
+  "reference_ident_code",
+  "event_column_break",
+  "event_id",
+  "event_timestamp",
+  "canonical_status",
+  "detail_section",
+  "event_code",
+  "reason_code",
+  "carrier_status",
+  "description",
+  "detail_column_break",
+  "location_city",
+  "location_postal_code",
+  "location_country",
+  "source_file",
+  "raw_section",
+  "raw_payload"
+ ],
+ "fields": [
+  {
+   "fieldname": "event_section",
+   "fieldtype": "Section Break",
+   "label": "Event"
+  },
+  {
+   "fieldname": "carrier",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Carrier",
+   "description": "Carrier identity key (GLS / AUSTRIAN_POST / FEDEX) from parcel/carrier_routing.py — not the Carrier master's display name.",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "shipment",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Shipment",
+   "options": "Shipment",
+   "description": "Empty for orphan events whose tracking code matched no Shipment yet; rematch_orphan_events fills it in later.",
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "tracking_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Tracking Number",
+   "description": "The code carried by the event itself: Austrian Post IdentCode (may be a partner-network code), FedEx tracking number, GLS TrackID.",
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "reference_ident_code",
+   "fieldtype": "Data",
+   "label": "Reference Ident Code",
+   "description": "Austrian Post ReferenceIdentCode (the 22-digit 1019… code). Empty for FedEx/GLS.",
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "event_column_break",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "event_id",
+   "fieldtype": "Data",
+   "label": "Event ID",
+   "description": "Deduplication key: Austrian Post AP::{ParcelEventId}; FedEx/GLS carry no event id, so a hash over timestamp+code+description is synthesized.",
+   "read_only": 1,
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "event_timestamp",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Event Timestamp",
+   "read_only": 1,
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "canonical_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Canonical Status",
+   "options": "In Progress\nAnnounced\nIn Transit\nOut for Delivery\nReady for Pickup\nDelivered\nProblem\nReturned\nLost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "detail_section",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "event_code",
+   "fieldtype": "Data",
+   "label": "Event Code",
+   "description": "Raw carrier event type (Post ParcelEventTypeCode / FedEx scan eventType / GLS status code).",
+   "read_only": 1
+  },
+  {
+   "fieldname": "reason_code",
+   "fieldtype": "Data",
+   "label": "Reason Code",
+   "description": "Austrian Post ParcelEventReasonCode.",
+   "read_only": 1
+  },
+  {
+   "fieldname": "carrier_status",
+   "fieldtype": "Data",
+   "label": "Carrier Status",
+   "description": "Raw carrier shipment state (Post ShipmentState AV/IV/IZ/ZU, FedEx derived code, GLS parcel status).",
+   "read_only": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description",
+   "read_only": 1
+  },
+  {
+   "fieldname": "detail_column_break",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "location_city",
+   "fieldtype": "Data",
+   "label": "City",
+   "read_only": 1
+  },
+  {
+   "fieldname": "location_postal_code",
+   "fieldtype": "Data",
+   "label": "Postal Code",
+   "description": "Stored as delivered by the carrier — Austrian Post files carry city names and hub labels in this field.",
+   "read_only": 1
+  },
+  {
+   "fieldname": "location_country",
+   "fieldtype": "Data",
+   "label": "Country",
+   "read_only": 1
+  },
+  {
+   "fieldname": "source_file",
+   "fieldtype": "Link",
+   "label": "Source File",
+   "options": "Post Tracking File",
+   "read_only": 1
+  },
+  {
+   "fieldname": "raw_section",
+   "fieldtype": "Section Break",
+   "label": "Raw Payload",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "raw_payload",
+   "fieldtype": "Code",
+   "label": "Raw Payload",
+   "options": "JSON",
+   "read_only": 1
+  }
+ ],
+ "in_create": 1,
+ "links": [],
+ "modified": "2026-09-09 09:30:00.000000",
+ "modified_by": "Administrator",
+ "module": "Erpnext Parcel Station",
+ "name": "Parcel Tracking Event",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager"
+  },
+  {
+   "export": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Stock User"
+  },
+  {
+   "export": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales User"
+  },
+  {
+   "export": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Stock Manager"
+  }
+ ],
+ "sort_field": "event_timestamp",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 0
+}

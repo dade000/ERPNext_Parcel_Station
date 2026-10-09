@@ -1,0 +1,89 @@
+{
+  "actions": [],
+  "allow_rename": 1,
+  "autoname": "field:rule_name",
+  "creation": "2024-01-01 00:00:00.000000",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "rule_name",
+    "carrier",
+    "is_active",
+    "country",
+    "apply_to_all_other_countries",
+    "carrier_product_code",
+    "carrier_service_code"
+  ],
+  "fields": [
+    {
+      "fieldname": "rule_name",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Rule Name",
+      "reqd": 1
+    },
+    {
+      "fieldname": "carrier",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Carrier",
+      "options": "Carrier",
+      "reqd": 1
+    },
+    {
+      "default": "1",
+      "fieldname": "is_active",
+      "fieldtype": "Check",
+      "label": "Is Active"
+    },
+    {
+      "fieldname": "country",
+      "fieldtype": "Link",
+      "label": "Country",
+      "options": "Country"
+    },
+    {
+      "fieldname": "apply_to_all_other_countries",
+      "fieldtype": "Check",
+      "label": "Apply To All Other Countries"
+    },
+    {
+      "fieldname": "carrier_product_code",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Carrier Product Code",
+      "reqd": 1
+    },
+    {
+      "fieldname": "carrier_service_code",
+      "fieldtype": "Data",
+      "label": "Carrier Service Code"
+    }
+  ],
+  "index_web_pages_for_search": 1,
+  "links": [],
+  "modified": "2024-01-01 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Erpnext Parcel Station",
+  "name": "Carrier Shipping Rule",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "states": [],
+  "title_field": "rule_name",
+  "track_changes": 1
+}

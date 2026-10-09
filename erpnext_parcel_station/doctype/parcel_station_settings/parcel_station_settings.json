@@ -1,0 +1,60 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-09-10 16:19:41.338547",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "default_carrier",
+  "austrian_post_base_url",
+  "debug_logs"
+ ],
+ "fields": [
+  {
+   "fieldname": "default_carrier",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Default Carrier Code",
+   "reqd": 1
+  },
+  {
+   "fieldname": "austrian_post_base_url",
+   "fieldtype": "Data",
+   "label": "Austrian Post Base URL",
+   "description": "Austria-only integration. Authentication is inherited from the Organisation Unit & Service section (Client ID + Org Unit ID + Org Unit GUID)."
+  },
+  {
+   "default": "0",
+   "fieldname": "debug_logs",
+   "fieldtype": "Check",
+   "label": "Enable Debug Logs"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-09-10 16:19:41.338547",
+ "modified_by": "Administrator",
+ "module": "Erpnext Parcel Station",
+ "name": "Parcel Station Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

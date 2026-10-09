@@ -1,0 +1,762 @@
+[
+ [
+  "CANCELED",
+  "Refused by recipient order cancelled"
+ ],
+ [
+  "CANCELED",
+  "The parcel was disposed upon custom´s request."
+ ],
+ [
+  "CANCELED",
+  "The parcel was disposed upon shipper´s request."
+ ],
+ [
+  "CANCELED",
+  "The pickup request has been cancelled as the customs invoice was missed."
+ ],
+ [
+  "CANCELED",
+  "The pickup request has been cancelled as the requester was asking for."
+ ],
+ [
+  "CANCELED",
+  "The pickup request was cancelled as the goods are excluded from transport by GLS terms & conditions."
+ ],
+ [
+  "CANCELED",
+  "The pickup request was cancelled as there were no goods to be picked up."
+ ],
+ [
+  "DATA_RECEIVED",
+  "It was found that the address for service is located in an area where the delivery is not possible due to access restrictions."
+ ],
+ [
+  "DATA_RECEIVED",
+  "The parcel could not be picked up as further address information is needed."
+ ],
+ [
+  "DATA_RECEIVED",
+  "The parcel could not be picked up as the consignee was absent."
+ ],
+ [
+  "DATA_RECEIVED",
+  "The parcel could not be picked up as the customer is on holidays."
+ ],
+ [
+  "DATA_RECEIVED",
+  "The parcel could not be picked up as the customer was absent."
+ ],
+ [
+  "DATA_RECEIVED",
+  "The parcel could not be picked up as the customer was not informed about the pickup."
+ ],
+ [
+  "DATA_RECEIVED",
+  "The parcel could not be picked up as the goods are excluded from transport by GLS terms & conditions."
+ ],
+ [
+  "DATA_RECEIVED",
+  "The parcel could not be picked up as the goods to be picked up were not packed."
+ ],
+ [
+  "DATA_RECEIVED",
+  "The parcel could not be picked up as the reception was closed."
+ ],
+ [
+  "DATA_RECEIVED",
+  "The parcel has been loaded into the transport vehicle destined for the next GLS depot."
+ ],
+ [
+  "DATA_RECEIVED",
+  "The parcel has not been picked up as further address information is needed."
+ ],
+ [
+  "DATA_RECEIVED",
+  "The parcel has not been picked up as the customer is on holidays."
+ ],
+ [
+  "DATA_RECEIVED",
+  "The parcel has reached the parcel center and was sorted manually."
+ ],
+ [
+  "DATA_RECEIVED",
+  "The parcel pickup failed as there were no goods to be picked up."
+ ],
+ [
+  "DATA_RECEIVED",
+  "The parcel was handed over by the shipper to GLS."
+ ],
+ [
+  "DATA_RECEIVED",
+  "The parcel was provided by the sender for collection by GLS."
+ ],
+ [
+  "DELIVERED",
+  "A signature was obtained for the parcel."
+ ],
+ [
+  "DELIVERED",
+  "Handing over the parcel to the recipient at the GLS ParcelShop."
+ ],
+ [
+  "DELIVERED",
+  "Information from Parcel Locker - collection confirmed"
+ ],
+ [
+  "DELIVERED",
+  "Parcel available at ParcelShop."
+ ],
+ [
+  "DELIVERED",
+  "The customs documents have been transferred to the customs agent of the consignee."
+ ],
+ [
+  "DELIVERED",
+  "The parcel could not be picked up as further address information is needed."
+ ],
+ [
+  "DELIVERED",
+  "The parcel could not be picked up as the consignee has moved."
+ ],
+ [
+  "DELIVERED",
+  "The parcel could not be picked up as the reception was closed."
+ ],
+ [
+  "DELIVERED",
+  "The parcel data is promptly recorded in the GLS IT system."
+ ],
+ [
+  "DELIVERED",
+  "The parcel has been collected by the recipient from the ParcelLocker."
+ ],
+ [
+  "DELIVERED",
+  "The parcel has been delivered / dropped off."
+ ],
+ [
+  "DELIVERED",
+  "The parcel has been delivered at a post office."
+ ],
+ [
+  "DELIVERED",
+  "The parcel has been delivered since a PIN validation was done."
+ ],
+ [
+  "DELIVERED",
+  "The parcel has been delivered to a post office box."
+ ],
+ [
+  "DELIVERED",
+  "The parcel has been delivered."
+ ],
+ [
+  "DELIVERED",
+  "The parcel has been delivered. The payment has been done by eCash."
+ ],
+ [
+  "DELIVERED",
+  "The parcel was successfully delivered by the GLS partner company."
+ ],
+ [
+  "DELIVERED",
+  "Your parcel was delivered with an electric vehicle."
+ ],
+ [
+  "HUB",
+  "Change completed for Delivery at new address"
+ ],
+ [
+  "HUB",
+  "Change completed for ParcelLocker"
+ ],
+ [
+  "HUB",
+  "Collection done Ad-hoc"
+ ],
+ [
+  "HUB",
+  "Customs clearance is delayed as the consignee refused acceptance."
+ ],
+ [
+  "HUB",
+  "Customs clearance is delayed awaiting payment of duties."
+ ],
+ [
+  "HUB",
+  "Customs clearance is delayed due to a missing orignal invoice."
+ ],
+ [
+  "HUB",
+  "Customs clearance is delayed due to a wrong incoterm."
+ ],
+ [
+  "HUB",
+  "Customs clearance is delayed due to missing or inaccurate customs documents."
+ ],
+ [
+  "HUB",
+  "Customs clearance is delayed until the value of the goods is clarified."
+ ],
+ [
+  "HUB",
+  "Customs clearance is delayed, pending release by the customs authorities."
+ ],
+ [
+  "HUB",
+  "Customs clearance is delayed."
+ ],
+ [
+  "HUB",
+  "Customs Consignment via Customs Portal"
+ ],
+ [
+  "HUB",
+  "Data deleted from GLS system weather conditions"
+ ],
+ [
+  "HUB",
+  "DOR - Trace document DOR Inbound IN"
+ ],
+ [
+  "HUB",
+  "DOR - Trace document DOR Outbound IN"
+ ],
+ [
+  "HUB",
+  "DOR - Trace document envelope DOR Outbound OUT"
+ ],
+ [
+  "HUB",
+  "Due to special circumstances (restricted access, receiving point closed or acceptance refusal), the parcel could not be delivered."
+ ],
+ [
+  "HUB",
+  "Evening delivery is not possible for the indicated zip code."
+ ],
+ [
+  "HUB",
+  "For the shipment a customs export declaration was created"
+ ],
+ [
+  "HUB",
+  "For the shipment a customs export notice was created"
+ ],
+ [
+  "HUB",
+  "Goods are cleared. Payment of customs duties by the consignee is expected."
+ ],
+ [
+  "HUB",
+  "GPS"
+ ],
+ [
+  "HUB",
+  "Ident Incomplete address - specify"
+ ],
+ [
+  "HUB",
+  "Inbound Max weight exceeded"
+ ],
+ [
+  "HUB",
+  "It is clarified whether the parcel cannot be delivered due to special circumstances (restricted access, receiving office closed or refusal to accept)."
+ ],
+ [
+  "HUB",
+  "It was found that the address for service is located in an area where the delivery is not possible due to access restrictions."
+ ],
+ [
+  "HUB",
+  "Not delivered awaiting consignee pick up"
+ ],
+ [
+  "HUB",
+  "Not out for delivery Consignee absent"
+ ],
+ [
+  "HUB",
+  "Not out for delivery due to parcel is too big for parcel locker"
+ ],
+ [
+  "HUB",
+  "Outbound customs inspection"
+ ],
+ [
+  "HUB",
+  "Parcel in return process"
+ ],
+ [
+  "HUB",
+  "ParcelLocker - Reservation expired"
+ ],
+ [
+  "HUB",
+  "Redelivery requested activated"
+ ],
+ [
+  "HUB",
+  "Redelivery requested Consignee request"
+ ],
+ [
+  "HUB",
+  "Redelivery requested failed"
+ ],
+ [
+  "HUB",
+  "Return shipment because the parcel could not be delivered due to special circumstances (restricted access, receiving point closed or refusal to accept delivery)."
+ ],
+ [
+  "HUB",
+  "Same day delivery is not possible for the indicated zip code."
+ ],
+ [
+  "HUB",
+  "The changed delivery option has been saved."
+ ],
+ [
+  "HUB",
+  "The consignee refused parcel acceptance in the ParcelShop."
+ ],
+ [
+  "HUB",
+  "The consignee was informed by mail about the delivery/pickup attempt."
+ ],
+ [
+  "HUB",
+  "The customs documents are being prepared."
+ ],
+ [
+  "HUB",
+  "The parcel could not be delivered as a new delivery date has been agreed."
+ ],
+ [
+  "HUB",
+  "The parcel could not be delivered as acceptance has been refused due to delayed delivery."
+ ],
+ [
+  "HUB",
+  "The parcel could not be delivered as access to the parcel box was not possible."
+ ],
+ [
+  "HUB",
+  "The parcel could not be delivered as further address information is needed."
+ ],
+ [
+  "HUB",
+  "The parcel could not be delivered as it was not possible to open the parcel box."
+ ],
+ [
+  "HUB",
+  "The parcel could not be delivered as the authorised consignee was absent."
+ ],
+ [
+  "HUB",
+  "The parcel could not be delivered as the consignee had no cash available/suitable."
+ ],
+ [
+  "HUB",
+  "The parcel could not be delivered as the consignee has moved."
+ ],
+ [
+  "HUB",
+  "The parcel could not be delivered as the consignee is on holidays."
+ ],
+ [
+  "HUB",
+  "The parcel could not be delivered as the consignee refused cash payment."
+ ],
+ [
+  "HUB",
+  "The parcel could not be delivered as the consignee refused to pay charges."
+ ],
+ [
+  "HUB",
+  "The parcel could not be delivered as the consignee was absent."
+ ],
+ [
+  "HUB",
+  "The parcel could not be delivered as the consignment is not complete."
+ ],
+ [
+  "HUB",
+  "The parcel could not be delivered as the exchange unit was not prepared."
+ ],
+ [
+  "HUB",
+  "The parcel could not be delivered as the parcel label cannot be scanned."
+ ],
+ [
+  "HUB",
+  "The parcel could not be delivered as the reception was closed."
+ ],
+ [
+  "HUB",
+  "The parcel could not be delivered as the recipient identity check failed."
+ ],
+ [
+  "HUB",
+  "The parcel could not be delivered as the recipient refused acceptance."
+ ],
+ [
+  "HUB",
+  "The parcel could not be delivered because an access code is required for the door."
+ ],
+ [
+  "HUB",
+  "The parcel could not be delivered due to a strike."
+ ],
+ [
+  "HUB",
+  "The parcel could not be delivered due to exceeded time frame."
+ ],
+ [
+  "HUB",
+  "The parcel could not be delivered due to missing CashService/COD data."
+ ],
+ [
+  "HUB",
+  "The parcel could not be delivered due to missing delivery data."
+ ],
+ [
+  "HUB",
+  "The parcel could not be delivered due to missing delivery note."
+ ],
+ [
+  "HUB",
+  "The parcel could not be delivered due to missing documents."
+ ],
+ [
+  "HUB",
+  "The parcel could not be delivered due to stocktaking."
+ ],
+ [
+  "HUB",
+  "The parcel could not be delivered due to traffic problems."
+ ],
+ [
+  "HUB",
+  "The parcel could not be delivered due to wrong or incomplete address."
+ ],
+ [
+  "HUB",
+  "The parcel could not be delivered due to wrong PIN entry."
+ ],
+ [
+  "HUB",
+  "The parcel could not be delivered in the ParcelShop."
+ ],
+ [
+  "HUB",
+  "The parcel could not be delivered into the ParcelLocker because there were no fitting compartments available."
+ ],
+ [
+  "HUB",
+  "The parcel could not be delivered to the ParcelLocker."
+ ],
+ [
+  "HUB",
+  "The parcel could not be delivered. A second delivery attempt takes place the next working day."
+ ],
+ [
+  "HUB",
+  "The parcel could not be delivered. It is too big to be placed in the parcel box."
+ ],
+ [
+  "HUB",
+  "The parcel could not be picked up as it was not possible to open the parcel box."
+ ],
+ [
+  "HUB",
+  "The parcel could not be picked up as the goods to be picked up were not packed."
+ ],
+ [
+  "HUB",
+  "The parcel could not be picked up as the reception was closed."
+ ],
+ [
+  "HUB",
+  "The parcel could not be picked up as the sender is on holidays."
+ ],
+ [
+  "HUB",
+  "The parcel could not be picked up as the sender was absent."
+ ],
+ [
+  "HUB",
+  "The parcel data have been deleted from the GLS IT system."
+ ],
+ [
+  "HUB",
+  "The parcel has arrived at the GLS partner company."
+ ],
+ [
+  "HUB",
+  "The parcel has been deposited into the ParcelLocker for further shipment by GLS."
+ ],
+ [
+  "HUB",
+  "The parcel has been loaded into the transport vehicle by the shipper."
+ ],
+ [
+  "HUB",
+  "The parcel has been picked up from the ParcelShop."
+ ],
+ [
+  "HUB",
+  "The parcel has reached the parcel center and was detected as volume parcel."
+ ],
+ [
+  "HUB",
+  "The parcel has reached the parcel center and was sorted manually."
+ ],
+ [
+  "HUB",
+  "The parcel has reached the parcel center, it is oversized."
+ ],
+ [
+  "HUB",
+  "The parcel has reached the parcel center."
+ ],
+ [
+  "HUB",
+  "The parcel is being stored in the GLS parcel center. It cannot be delivered as the parcel is to big for the ParcelLocker / the ParcelLocker is occupied."
+ ],
+ [
+  "HUB",
+  "The parcel is being stored in the GLS parcel center. It could not be delivered as access to the parcel box was not possible."
+ ],
+ [
+  "HUB",
+  "The parcel is being stored in the GLS parcel center. It could not be delivered as the parcel box was occupied."
+ ],
+ [
+  "HUB",
+  "The parcel is stored at customs."
+ ],
+ [
+  "HUB",
+  "The parcel is stored in the  parcel center as the consignee refused acceptance in the ParcelShop."
+ ],
+ [
+  "HUB",
+  "The parcel is stored in the  parcel center. It cannot be delivered due to missing documents."
+ ],
+ [
+  "HUB",
+  "The parcel is stored in the final parcel center as delivery in the ParcelShop was not possible."
+ ],
+ [
+  "HUB",
+  "The parcel is stored in the final parcel center as it was too big to be placed in the parcel box."
+ ],
+ [
+  "HUB",
+  "The parcel is stored in the final parcel center as the consignee refused acceptance in the ParcelShop."
+ ],
+ [
+  "HUB",
+  "The parcel is stored in the final parcel center to be delivered at a new delivery date."
+ ],
+ [
+  "HUB",
+  "The parcel is stored in the final parcel center to be picked up by the consignee."
+ ],
+ [
+  "HUB",
+  "The parcel is stored in the final parcel center. as the acceptance was refused due to delayed delivery."
+ ],
+ [
+  "HUB",
+  "The parcel is stored in the final parcel center. Delivery and exchange were not possible as the customer was not informed about the pickup."
+ ],
+ [
+  "HUB",
+  "The parcel is stored in the final parcel center. Delivery and exchange were not possible as the exchange unit was not packed."
+ ],
+ [
+  "HUB",
+  "The parcel is stored in the final parcel center. Delivery and exchange were not possible as the exchange unit was sent by other means."
+ ],
+ [
+  "HUB",
+  "The parcel is stored in the final parcel center. It could not be delivered as acceptance was denied due to duplicate delivery."
+ ],
+ [
+  "HUB",
+  "The parcel is stored in the final parcel center. It could not be delivered as further address information is needed."
+ ],
+ [
+  "HUB",
+  "The parcel is stored in the final parcel center. It could not be delivered as it was not possible to open the parcel box."
+ ],
+ [
+  "HUB",
+  "The parcel is stored in the final parcel center. It could not be delivered as the authorised consignee was absent."
+ ],
+ [
+  "HUB",
+  "The parcel is stored in the final parcel center. It could not be delivered as the consignee had no cash available."
+ ],
+ [
+  "HUB",
+  "The parcel is stored in the final parcel center. It could not be delivered as the consignee has moved."
+ ],
+ [
+  "HUB",
+  "The parcel is stored in the final parcel center. It could not be delivered as the consignee is on holidays."
+ ],
+ [
+  "HUB",
+  "The parcel is stored in the final parcel center. It could not be delivered as the consignee refused acceptance."
+ ],
+ [
+  "HUB",
+  "The parcel is stored in the final parcel center. It could not be delivered as the consignee refused to pay the CashService amount."
+ ],
+ [
+  "HUB",
+  "The parcel is stored in the final parcel center. It could not be delivered as the consignee was absent."
+ ],
+ [
+  "HUB",
+  "The parcel is stored in the final parcel center. It could not be delivered as the consignment is incomplete."
+ ],
+ [
+  "HUB",
+  "The parcel is stored in the final parcel center. It could not be delivered as the exchange unit was not prepared."
+ ],
+ [
+  "HUB",
+  "The parcel is stored in the final parcel center. It could not be delivered as the goods are excluded from transport by GLS terms & conditions."
+ ],
+ [
+  "HUB",
+  "The parcel is stored in the final parcel center. It could not be delivered as the reception was closed."
+ ],
+ [
+  "HUB",
+  "The parcel is stored in the final parcel center. It could not be delivered as the recipient identity check failed."
+ ],
+ [
+  "HUB",
+  "The parcel is stored in the final parcel center. It could not be delivered due to missing CashService data."
+ ],
+ [
+  "HUB",
+  "The parcel is stored in the final parcel center. It could not be delivered due to missing data of hazardous goods."
+ ],
+ [
+  "HUB",
+  "The parcel is stored in the final parcel center. It could not be delivered due to missing delivery data."
+ ],
+ [
+  "HUB",
+  "The parcel is stored in the final parcel center. It could not be delivered due to missing documents."
+ ],
+ [
+  "HUB",
+  "The parcel is stored in the final parcel center. It could not be delivered due to traffic problems."
+ ],
+ [
+  "HUB",
+  "The parcel is stored in the final parcel center. It could not be delivered due to wrong PIN entry."
+ ],
+ [
+  "HUB",
+  "The parcel is stored in the GLS parcel center. It could not be delivered as the authorised consignee was absent."
+ ],
+ [
+  "HUB",
+  "The parcel is stored in the GLS parcel center. The parcel could not be delivered as the parcel label cannot be scanned."
+ ],
+ [
+  "HUB",
+  "The parcel is stored in the parcel center."
+ ],
+ [
+  "HUB",
+  "The parcel is stored in the parcel center.  It cannot delivered as the authorised recipient was absent."
+ ],
+ [
+  "HUB",
+  "The parcel is stored in the parcel center. It cannot be delivered as further address information is needed."
+ ],
+ [
+  "HUB",
+  "The parcel is stored in the parcel center. It cannot be delivered as the authorised consignee was absent."
+ ],
+ [
+  "HUB",
+  "The parcel is stored in the parcel center. It cannot be delivered as the delivery note is missing."
+ ],
+ [
+  "HUB",
+  "The parcel is stored in the parcel center. It cannot be delivered as the reception is closed."
+ ],
+ [
+  "HUB",
+  "The parcel is stored in the parcel center. It cannot be delivered as the recipient identity check failed."
+ ],
+ [
+  "HUB",
+  "The parcel is stored in the parcel center. It cannot be delivered due to missing documents."
+ ],
+ [
+  "HUB",
+  "The parcel is stored in the parcel center. It could not be delivered because the selected ParcelLocker is unfortunately not usable."
+ ],
+ [
+  "HUB",
+  "The parcel returned from customs."
+ ],
+ [
+  "HUB",
+  "The pickup attempt failed as there were no goods to be picked up."
+ ],
+ [
+  "HUB",
+  "The pickup failed as there was no parcel for collection in the parcel box."
+ ],
+ [
+  "HUB",
+  "The redelivery instruction is cancelled/overruled"
+ ],
+ [
+  "HUB",
+  "Unsuccesfull collection because there was another parcel in the compartment"
+ ],
+ [
+  "HUB",
+  "Your parcel could not be dropped off at a GLS Relay."
+ ],
+ [
+  "IN_DELIVERY",
+  "Inbound Handed over to consignee via PS-App"
+ ],
+ [
+  "IN_DELIVERY",
+  "Out for delivery Parcel not on delivery list"
+ ],
+ [
+  "IN_DELIVERY",
+  "ParcelLocker Collection on TourList"
+ ],
+ [
+  "IN_DELIVERY",
+  "The changed delivery option has been saved in the GLS system and will be implemented as requested."
+ ],
+ [
+  "IN_DELIVERY",
+  "The express parcel is in the delivery vehicle and will be delivered at the agreed time."
+ ],
+ [
+  "IN_DELIVERY",
+  "The parcel has been delivered into the ParcelLocker."
+ ],
+ [
+  "IN_DELIVERY",
+  "The parcel is expected to be delivered during the day."
+ ]
+]

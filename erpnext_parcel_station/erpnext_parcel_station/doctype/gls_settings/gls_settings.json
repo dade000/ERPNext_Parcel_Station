@@ -1,0 +1,179 @@
+{
+  "actions": [],
+  "allow_rename": 0,
+  "creation": "2025-10-22 09:15:00.000000",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "credentials_section",
+    "gls_api_endpoint",
+    "gls_username",
+    "gls_password",
+    "column_break_credentials",
+    "gls_customer_id",
+    "gls_contact_id",
+    "http_section",
+    "gls_api_timeout",
+    "column_break_http",
+    "gls_parcelshop_search_url",
+    "gls_cancel_endpoint",
+    "headers_section",
+    "gls_api_accept",
+    "column_break_headers",
+    "gls_api_content_type",
+    "tracking_section",
+    "enable_gls_tracking",
+    "gls_tracking_endpoint",
+    "column_break_tracking",
+    "gls_max_parcels_per_run"
+  ],
+  "fields": [
+    {
+      "fieldname": "credentials_section",
+      "fieldtype": "Section Break",
+      "label": "API Credentials"
+    },
+    {
+      "fieldname": "gls_api_endpoint",
+      "fieldtype": "Data",
+      "label": "GLS API Endpoint URL",
+      "description": "The base URL for the GLS API (e.g., https://api.gls-europe.eu)",
+      "reqd": 1
+    },
+    {
+      "fieldname": "gls_username",
+      "fieldtype": "Data",
+      "label": "GLS API Username",
+      "reqd": 1
+    },
+    {
+      "fieldname": "gls_password",
+      "fieldtype": "Password",
+      "label": "GLS API Password",
+      "reqd": 1
+    },
+    {
+      "fieldname": "column_break_credentials",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "gls_customer_id",
+      "fieldtype": "Data",
+      "label": "GLS Customer ID"
+    },
+    {
+      "fieldname": "gls_contact_id",
+      "fieldtype": "Data",
+      "label": "GLS Contact ID"
+    },
+    {
+      "fieldname": "http_section",
+      "fieldtype": "Section Break",
+      "label": "HTTP & Endpoints"
+    },
+    {
+      "fieldname": "gls_api_timeout",
+      "fieldtype": "Int",
+      "label": "HTTP Timeout (seconds)",
+      "description": "Request timeout in seconds for GLS API calls.",
+      "default": "30",
+      "non_negative": 1
+    },
+    {
+      "fieldname": "column_break_http",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "gls_parcelshop_search_url",
+      "fieldtype": "Data",
+      "label": "ParcelShop Search URL",
+      "description": "Full URL of the GLS ParcelShop address search endpoint.",
+      "default": "https://shipit-wbm-test01.gls-group.eu:8443/backend/rs/parcelshop/address"
+    },
+    {
+      "fieldname": "gls_cancel_endpoint",
+      "fieldtype": "Data",
+      "label": "Cancel Endpoint",
+      "description": "GLS cancel-shipment endpoint. Use {trackID} as the placeholder for the parcel tracking number (e.g. /backend/rs/shipments/cancel/{trackID}).",
+      "default": "/backend/rs/shipments/cancel/{trackID}"
+    },
+    {
+      "fieldname": "headers_section",
+      "fieldtype": "Section Break",
+      "label": "Headers"
+    },
+    {
+      "fieldname": "gls_api_accept",
+      "fieldtype": "Data",
+      "label": "Accept Header",
+      "description": "Accept header sent on requests to GLS.",
+      "default": "application/glsVersion1+json, application/json"
+    },
+    {
+      "fieldname": "column_break_headers",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "gls_api_content_type",
+      "fieldtype": "Data",
+      "label": "Content-Type Header",
+      "description": "Content-Type header sent on requests to GLS.",
+      "default": "application/glsVersion1+json"
+    },
+    {
+      "fieldname": "tracking_section",
+      "fieldtype": "Section Break",
+      "label": "Tracking"
+    },
+    {
+      "default": "0",
+      "fieldname": "enable_gls_tracking",
+      "fieldtype": "Check",
+      "label": "Enable GLS Tracking Poll",
+      "description": "When unchecked, the scheduled tracking poll skips GLS."
+    },
+    {
+      "fieldname": "gls_tracking_endpoint",
+      "fieldtype": "Data",
+      "label": "Tracking Endpoint",
+      "description": "GLS ShipIT parcel-details endpoint, relative to the GLS API Endpoint URL (or a full https:// URL). ShipIT installations differ, hence configurable.",
+      "default": "/backend/rs/tracking/parceldetails"
+    },
+    {
+      "fieldname": "column_break_tracking",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "200",
+      "fieldname": "gls_max_parcels_per_run",
+      "fieldtype": "Int",
+      "label": "Max Parcels per Poll Run",
+      "description": "The tracking endpoint takes one parcel per request; this caps how many open shipments one scheduler run queries.",
+      "non_negative": 1
+    }
+  ],
+  "issingle": 1,
+  "links": [],
+  "modified": "2026-04-30 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Erpnext Parcel Station",
+  "name": "GLS Settings",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "states": []
+}

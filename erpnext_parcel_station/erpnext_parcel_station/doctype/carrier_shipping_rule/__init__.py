@@ -1,0 +1,2 @@
+"""Carrier Shipping Rule DocType."""
+

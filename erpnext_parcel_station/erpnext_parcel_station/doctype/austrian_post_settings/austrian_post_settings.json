@@ -1,0 +1,196 @@
+{
+ "actions": [],
+ "creation": "2026-09-08 08:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "issingle": 1,
+ "field_order": [
+  "api_section",
+  "enable_austrian_post_integration",
+  "endpoint_url",
+  "austrian_post_base_url",
+  "ap_import_soapaction",
+  "ap_cancel_soapaction",
+  "org_section",
+  "client_id",
+  "org_unit_guid",
+  "org_unit_id",
+  "customs_option_id",
+  "tracking_section",
+  "enable_post_tracking",
+  "sftp_host",
+  "sftp_port",
+  "sftp_username",
+  "sftp_password",
+  "tracking_column_break",
+  "sftp_directory",
+  "sftp_filename_prefix",
+  "sftp_move_processed",
+  "sftp_processed_dir",
+  "sftp_failed_dir"
+ ],
+ "fields": [
+  {
+   "fieldname": "api_section",
+   "fieldtype": "Section Break",
+   "label": "SOAP API"
+  },
+  {
+   "default": "1",
+   "fieldname": "enable_austrian_post_integration",
+   "fieldtype": "Check",
+   "label": "Enable Austrian Post Integration",
+   "description": "When unchecked, Austrian Post cancellation API calls are skipped (the ERPNext cancellation still proceeds and is logged)."
+  },
+  {
+   "default": "https://abn-plc.post.at/DataService/Post.Webservice/ShippingService.svc/secure",
+   "fieldname": "endpoint_url",
+   "fieldtype": "Data",
+   "label": "SOAP Endpoint URL",
+   "description": "Full URL of the Austrian Post ShippingService SOAP endpoint. Used as the default for both Import and Cancel unless overridden below."
+  },
+  {
+   "fieldname": "austrian_post_base_url",
+   "fieldtype": "Data",
+   "label": "Austrian Post Base URL",
+   "description": "Austria-only integration. All operations use the single SOAP Endpoint URL above; the operation is selected by the SOAPAction header (configured below) — there is no separate per-operation URL."
+  },
+  {
+   "default": "http://post.ondot.at/IShippingService/ImportShipment",
+   "fieldname": "ap_import_soapaction",
+   "fieldtype": "Data",
+   "label": "Import SOAPAction",
+   "description": "SOAPAction header sent for the ImportShipment (create) operation."
+  },
+  {
+   "default": "http://post.ondot.at/IShippingService/CancelShipments",
+   "fieldname": "ap_cancel_soapaction",
+   "fieldtype": "Data",
+   "label": "Cancel SOAPAction",
+   "description": "SOAPAction header sent for the CancelShipments operation."
+  },
+  {
+   "fieldname": "org_section",
+   "fieldtype": "Section Break",
+   "label": "Organisation Unit & Service"
+  },
+  {
+   "fieldname": "client_id",
+   "fieldtype": "Data",
+   "label": "Client ID",
+   "description": "Austrian Post ClientID sent in ImportShipment requests."
+  },
+  {
+   "fieldname": "org_unit_guid",
+   "fieldtype": "Data",
+   "label": "Org Unit GUID"
+  },
+  {
+   "fieldname": "org_unit_id",
+   "fieldtype": "Data",
+   "label": "Org Unit ID"
+  },
+  {
+   "default": "1",
+   "fieldname": "customs_option_id",
+   "fieldtype": "Int",
+   "label": "Customs Option ID (Art der Sendung)",
+   "description": "Austrian Post ColloArticleRow.CustomsOptionID — \"Art der Sendung\", the customs category sent for every article. 1 = Sale of goods (default), 2 = Gift, 3 = Documents, 4 = Commercial Sample, 5 = Return of goods, 6 = Other. Leave at 1 for normal sales; a wrong value declares a wrong customs category."
+  },
+  {
+   "fieldname": "tracking_section",
+   "fieldtype": "Section Break",
+   "label": "Tracking (SFTP)",
+   "description": "The Post drops POSTTRACK_*.xml tracking-event files on their SFTP server daily at 08:00, 12:00 and 17:00; the scheduler fetches them shortly after."
+  },
+  {
+   "default": "0",
+   "fieldname": "enable_post_tracking",
+   "fieldtype": "Check",
+   "label": "Enable Post Tracking Import",
+   "description": "When unchecked, the SFTP fetch job returns without connecting."
+  },
+  {
+   "fieldname": "sftp_host",
+   "fieldtype": "Data",
+   "label": "SFTP Host"
+  },
+  {
+   "default": "22",
+   "fieldname": "sftp_port",
+   "fieldtype": "Int",
+   "label": "SFTP Port",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "sftp_username",
+   "fieldtype": "Data",
+   "label": "SFTP Username"
+  },
+  {
+   "fieldname": "sftp_password",
+   "fieldtype": "Password",
+   "label": "SFTP Password"
+  },
+  {
+   "fieldname": "tracking_column_break",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sftp_directory",
+   "fieldtype": "Data",
+   "label": "SFTP Directory",
+   "description": "Remote directory containing the tracking files. Leave empty for the login directory."
+  },
+  {
+   "default": "POSTTRACK_",
+   "fieldname": "sftp_filename_prefix",
+   "fieldtype": "Data",
+   "label": "Filename Prefix",
+   "description": "Only files starting with this prefix (and ending in .xml) are fetched."
+  },
+  {
+   "default": "0",
+   "fieldname": "sftp_move_processed",
+   "fieldtype": "Check",
+   "label": "Move Files on Server After Import",
+   "description": "Off by default: files may stay in place — name + content-hash dedup makes re-reading them harmless, and the Post server may be read-only for us."
+  },
+  {
+   "depends_on": "sftp_move_processed",
+   "fieldname": "sftp_processed_dir",
+   "fieldtype": "Data",
+   "label": "Processed Directory"
+  },
+  {
+   "depends_on": "sftp_move_processed",
+   "fieldname": "sftp_failed_dir",
+   "fieldtype": "Data",
+   "label": "Failed Directory"
+  }
+ ],
+ "grid_page_length": 50,
+ "links": [],
+ "modified": "2026-09-08 08:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Erpnext Parcel Station",
+ "name": "Austrian Post Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
