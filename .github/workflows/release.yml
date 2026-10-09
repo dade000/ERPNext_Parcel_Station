@@ -1,0 +1,36 @@
+name: Release
+
+# Ein annotierter Tag wie v0.3.8 legt ein GitHub-Release an. Die Nachricht des
+# Tags wird zu den Release Notes:
+#   git tag -a v0.3.8 -F notes.md && git push origin v0.3.8
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Version prüfen
+        env:
+          VERSION: ${{ github.ref_name }}
+        run: |
+          app_version=$(sed -n 's/^__version__ = "\(.*\)"/\1/p' erpnext_parcel_station/__init__.py)
+          if [ "v$app_version" != "$VERSION" ]; then
+            echo "Tag $VERSION passt nicht zu __version__ $app_version" >&2
+            exit 1
+          fi
+      - name: Release anlegen
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ github.ref_name }}
+        run: |
+          git fetch --force origin "refs/tags/$VERSION:refs/tags/$VERSION"
+          git tag -l --format='%(contents:body)' "$VERSION" > notes.md
+          gh release create "$VERSION" --title "$VERSION" --notes-file notes.md --verify-tag
